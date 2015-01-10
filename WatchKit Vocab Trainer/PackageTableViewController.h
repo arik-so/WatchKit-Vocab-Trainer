@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PackageTableViewController : UITableViewController
+#import <AsyncDisplayKit/AsyncDisplayKit.h>
+
+@interface PackageTableViewController : UITableViewController <ASNetworkImageNodeDelegate>
 
 @end

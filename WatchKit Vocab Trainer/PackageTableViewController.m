@@ -8,7 +8,13 @@
 
 #import "PackageTableViewController.h"
 
+#import "FRServer.h"
+
+
 @interface PackageTableViewController ()
+
+@property (strong, nonatomic) NSArray *categories;
+@property (strong, nonatomic) NSMutableDictionary *categoryImages;
 
 @end
 
@@ -22,6 +28,27 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.categoryImages = @{}.mutableCopy;
+    
+    [self fetchFromServer];
+    
+}
+
+- (void)fetchFromServer{
+    
+    // get all the categories
+    dispatch_async(dispatch_queue_create(nil, nil), ^{
+        NSString *jsonString = [[NSString alloc] initWithContentsOfURL:[NSURL URLWithString:@"http://xampp.localhost/watchkit-vocab-trainer/web/categories"] encoding:NSUTF8StringEncoding error:nil];
+        
+        self.categories = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:nil error:nil];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+        });
+        
+    });
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,9 +65,8 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 2;
+    return self.categories.count;
 }
 
 
@@ -48,14 +74,41 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
 
     
+    NSDictionary *details = self.categories[indexPath.row];
+    NSString *categoryID = details[@"id"];
+    NSString *name = details[@"name"];
+    NSString *imageURL = details[@"image_url"];
     
+    UIImage *image = self.categoryImages[categoryID];
     
+    if(image){
+        
+        cell.imageView.image = image;
+        
+    }else{
     
-    cell.textLabel.text=@"TEXT";
+        [FRServer imageFromURL:imageURL HTTPMethod:@"GET" attributes:nil HTTPHeaderFieldDictionary:nil andCallbackBlock:^(UIImage *image) {
+        
+            self.categoryImages[categoryID] = image;
+            
+            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        
+        }];
+        
+    }
+    
+    cell.textLabel.text = name;
+
     
     return cell;
 }
 
+
+- (void)imageNode:(ASNetworkImageNode *)imageNode didLoadImage:(UIImage *)image{
+    
+    [self.tableView reloadData];
+    
+}
 
 /*
 // Override to support conditional editing of the table view.
