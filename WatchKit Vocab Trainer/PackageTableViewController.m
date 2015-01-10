@@ -29,13 +29,17 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    self.categoryImages = @{}.mutableCopy;
+    self.refreshControl = [UIRefreshControl new];
+    [self.refreshControl addTarget:self action:@selector(fetchFromServer) forControlEvents:UIControlEventValueChanged];
     
     [self fetchFromServer];
+    
     
 }
 
 - (void)fetchFromServer{
+    
+    self.categoryImages = @{}.mutableCopy;
     
     // get all the categories
     dispatch_async(dispatch_queue_create(nil, nil), ^{
@@ -44,7 +48,10 @@
         self.categories = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:nil error:nil];
         
         dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [self.refreshControl endRefreshing];
             [self.tableView reloadData];
+            
         });
         
     });
@@ -86,6 +93,8 @@
         cell.imageView.image = image;
         
     }else{
+        
+        cell.imageView.image = nil;
     
         [FRServer imageFromURL:imageURL HTTPMethod:@"GET" attributes:nil HTTPHeaderFieldDictionary:nil andCallbackBlock:^(UIImage *image) {
         
