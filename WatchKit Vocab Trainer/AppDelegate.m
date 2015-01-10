@@ -42,4 +42,29 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+-(void)application:(UIApplication *)application handleWatchKitExtensionRequest:(NSDictionary *)userInfo reply:(void (^)(NSDictionary *replyInfo))reply {
+    
+    reply([AppDelegate factoryJSONQuestion]);
+}
+
+
++(NSDictionary *) factoryJSONQuestion {
+    
+    NSString *question = @"Banane";
+    NSString *answer1 = @"Cola";
+    NSString *identifier1 = @"false";
+    
+    NSString *answer2 = @"Apfel";
+    NSString *identifier2 = @"false";
+    
+    NSString *answer3 = @"Banana";
+    NSString *identifier3 = @"true";
+
+    
+    NSString *questionString = [NSString stringWithFormat:@"{    \"aps\": {        \"alert\": \"%@\",        \"title\": \"Optional title\",        \"category\": \"myCategory\"    },        \"WatchKit Simulator Actions\": [                                   {                                        \"title\": \"%@\",                                        \"identifier\": \"%@\"                                   } , {                                        \"title\": \"%@\",                                        \"identifier\": \"%@\"                                   } , {                                        \"title\": \"%@\",                                        \"identifier\": \"%@\"                                   }                                   ]}",question,answer1,identifier1,answer2,identifier2,answer3,identifier3];
+    
+
+    return [NSJSONSerialization JSONObjectWithData:[questionString  dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
+}
+
 @end

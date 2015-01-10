@@ -10,17 +10,30 @@
 
 
 @interface InterfaceController()
+@property (weak, nonatomic) IBOutlet WKInterfaceLabel *answerLabel;
+@property (weak, nonatomic) IBOutlet WKInterfaceButton *nextQuestionButton;
+@property (weak, nonatomic) IBOutlet WKInterfaceButton *quitAppButton;
+@property (strong, nonatomic) NSDictionary *nextQuestion;
 
 @end
 
 
 @implementation InterfaceController
 
+
+
+
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
+    
+    [self handleActionWithIdentifier:context[@"identifier"] forRemoteNotification:context];
+    
+    
 
+    
     // Configure interface objects here.
 }
+
 
 - (void)willActivate {
     // This method is called when watch view controller is about to be visible to user
@@ -30,6 +43,46 @@
 - (void)didDeactivate {
     // This method is called when watch view controller is no longer visible
     [super didDeactivate];
+}
+
+
+
+-(void) handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)remoteNotification {
+    
+    NSLog(@"%@",remoteNotification);
+    
+    NSString *question = remoteNotification[@"aps"][@"alert"];
+    
+    
+    NSArray *answers = remoteNotification[@"WatchKit Simulator Actions"];
+    
+    NSString *rightAnswer;
+    for(NSDictionary *dic in answers) {
+        if ([dic[@"identifier"] boolValue] == true) {
+            rightAnswer=dic[@"title"];
+            break;
+        }
+    }
+    
+    
+    if([identifier isEqualToString:@"true"]) {
+        [self.answerLabel setText:[NSString stringWithFormat:@"Right 😄\nRight answer: %@: %@",question,rightAnswer]];
+    } else {
+        [self.answerLabel setText:[NSString stringWithFormat:@"Wrong 😖\nRight answer: %@: %@",question,rightAnswer]];
+    }
+    
+    [InterfaceController openParentApplication:@{@"1": @"object"} reply:^(NSDictionary *replyInfo, NSError *error) {
+        self.nextQuestion = replyInfo;
+        [self.quitAppButton setHidden:false];
+        [self.nextQuestionButton setHidden:false];
+    }];
+
+
+}
+
+-(id)contextForSegueWithIdentifier:(NSString *)segueIdentifier {
+    
+    return self.nextQuestion;
 }
 
 @end

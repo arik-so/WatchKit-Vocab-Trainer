@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5163774B1A618336005E83CA /* PackageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5163774A1A618336005E83CA /* PackageTableViewController.m */; };
+		5163774E1A61904D005E83CA /* QuestionInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5163774D1A61904D005E83CA /* QuestionInterfaceController.m */; };
 		51DA82D31A6164DD00F2E962 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 51DA82D21A6164DD00F2E962 /* main.m */; };
 		51DA82D61A6164DD00F2E962 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 51DA82D51A6164DD00F2E962 /* AppDelegate.m */; };
-		51DA82D91A6164DD00F2E962 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51DA82D81A6164DD00F2E962 /* ViewController.m */; };
 		51DA82DC1A6164DD00F2E962 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51DA82DA1A6164DD00F2E962 /* Main.storyboard */; };
 		51DA82DE1A6164DD00F2E962 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51DA82DD1A6164DD00F2E962 /* Images.xcassets */; };
 		51DA82E11A6164DD00F2E962 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51DA82DF1A6164DD00F2E962 /* LaunchScreen.xib */; };
@@ -63,13 +64,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		516377491A618336005E83CA /* PackageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PackageTableViewController.h; sourceTree = "<group>"; };
+		5163774A1A618336005E83CA /* PackageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PackageTableViewController.m; sourceTree = "<group>"; };
+		5163774C1A61904D005E83CA /* QuestionInterfaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionInterfaceController.h; sourceTree = "<group>"; };
+		5163774D1A61904D005E83CA /* QuestionInterfaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionInterfaceController.m; sourceTree = "<group>"; };
 		51DA82CD1A6164DC00F2E962 /* WatchKit Vocab Trainer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WatchKit Vocab Trainer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		51DA82D11A6164DD00F2E962 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		51DA82D21A6164DD00F2E962 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		51DA82D41A6164DD00F2E962 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		51DA82D51A6164DD00F2E962 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		51DA82D71A6164DD00F2E962 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		51DA82D81A6164DD00F2E962 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		51DA82DB1A6164DD00F2E962 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		51DA82DD1A6164DD00F2E962 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		51DA82E01A6164DD00F2E962 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -144,8 +147,8 @@
 			children = (
 				51DA82D41A6164DD00F2E962 /* AppDelegate.h */,
 				51DA82D51A6164DD00F2E962 /* AppDelegate.m */,
-				51DA82D71A6164DD00F2E962 /* ViewController.h */,
-				51DA82D81A6164DD00F2E962 /* ViewController.m */,
+				516377491A618336005E83CA /* PackageTableViewController.h */,
+				5163774A1A618336005E83CA /* PackageTableViewController.m */,
 				51DA82DA1A6164DD00F2E962 /* Main.storyboard */,
 				51DA82DD1A6164DD00F2E962 /* Images.xcassets */,
 				51DA82DF1A6164DD00F2E962 /* LaunchScreen.xib */,
@@ -185,6 +188,8 @@
 			children = (
 				51DA82FF1A61657E00F2E962 /* InterfaceController.h */,
 				51DA83001A61657E00F2E962 /* InterfaceController.m */,
+				5163774C1A61904D005E83CA /* QuestionInterfaceController.h */,
+				5163774D1A61904D005E83CA /* QuestionInterfaceController.m */,
 				51DA83021A61657E00F2E962 /* NotificationController.h */,
 				51DA83031A61657E00F2E962 /* NotificationController.m */,
 				51DA83051A61657E00F2E962 /* GlanceController.h */,
@@ -383,8 +388,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51DA82D91A6164DD00F2E962 /* ViewController.m in Sources */,
 				51DA82D61A6164DD00F2E962 /* AppDelegate.m in Sources */,
+				5163774B1A618336005E83CA /* PackageTableViewController.m in Sources */,
 				51DA82D31A6164DD00F2E962 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -402,6 +407,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				51DA83041A61657E00F2E962 /* NotificationController.m in Sources */,
+				5163774E1A61904D005E83CA /* QuestionInterfaceController.m in Sources */,
 				51DA83011A61657E00F2E962 /* InterfaceController.m in Sources */,
 				51DA83071A61657E00F2E962 /* GlanceController.m in Sources */,
 			);
@@ -662,6 +668,7 @@
 				51DA82F21A6164DD00F2E962 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		51DA82F31A6164DD00F2E962 /* Build configuration list for PBXNativeTarget "WatchKit Vocab TrainerTests" */ = {
 			isa = XCConfigurationList;
@@ -670,6 +677,7 @@
 				51DA82F51A6164DD00F2E962 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		51DA831B1A61657E00F2E962 /* Build configuration list for PBXNativeTarget "WatchKit Vocab Trainer WatchKit App" */ = {
 			isa = XCConfigurationList;
@@ -678,6 +686,7 @@
 				51DA831D1A61657E00F2E962 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		51DA831E1A61657E00F2E962 /* Build configuration list for PBXNativeTarget "WatchKit Vocab Trainer WatchKit Extension" */ = {
 			isa = XCConfigurationList;
@@ -686,6 +695,7 @@
 				51DA83201A61657E00F2E962 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
