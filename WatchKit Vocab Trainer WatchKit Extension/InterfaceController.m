@@ -51,6 +51,8 @@
     
     //NSLog(@"%@",remoteNotification);
     
+    
+    
     NSString *question = remoteNotification[@"aps"][@"alert"];
     
     
@@ -71,8 +73,8 @@
         [self.answerLabel setText:[NSString stringWithFormat:@"Wrong 😖\nRight answer: %@: %@",question,rightAnswer]];
     }
     
-    [InterfaceController openParentApplication:@{@"1": @"object"} reply:^(NSDictionary *replyInfo, NSError *error) {
-        NSLog(@"%@",replyInfo);
+    [InterfaceController openParentApplication:@{@"key": @"getNewQuestionFromServer"} reply:^(NSDictionary *replyInfo, NSError *error) {
+        NSLog(@"AppDelegate Reply: %@",replyInfo);
         self.nextQuestion = replyInfo;
         [self.quitAppButton setHidden:false];
         [self.nextQuestionButton setHidden:false];
