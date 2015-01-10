@@ -8,11 +8,13 @@
 
 #import "PackageTableViewController.h"
 
+#import "FRServer.h"
 
 
 @interface PackageTableViewController ()
 
 @property (strong, nonatomic) NSArray *categories;
+@property (strong, nonatomic) NSMutableDictionary *categoryImages;
 
 @end
 
@@ -26,6 +28,8 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.categoryImages = @{}.mutableCopy;
     
     [self fetchFromServer];
     
@@ -71,16 +75,30 @@
 
     
     NSDictionary *details = self.categories[indexPath.row];
+    NSString *categoryID = details[@"id"];
     NSString *name = details[@"name"];
     NSString *imageURL = details[@"image_url"];
     
-    ASNetworkImageNode *image = [[ASNetworkImageNode alloc] init];
-    [image setURL:[NSURL URLWithString:imageURL]];
-    image.placeholderEnabled = YES;
-    image.delegate = self;
+    UIImage *image = self.categoryImages[categoryID];
+    
+    if(image){
+        
+        cell.imageView.image = image;
+        
+    }else{
+    
+        [FRServer imageFromURL:imageURL HTTPMethod:@"GET" attributes:nil HTTPHeaderFieldDictionary:nil andCallbackBlock:^(UIImage *image) {
+        
+            self.categoryImages[categoryID] = image;
+            
+            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        
+        }];
+        
+    }
     
     cell.textLabel.text = name;
-    cell.imageView.image = image.image;
+
     
     return cell;
 }
