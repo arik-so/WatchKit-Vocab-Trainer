@@ -26,7 +26,7 @@
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
     
-    [self handleActionWithIdentifier:context[@"identifier"] forRemoteNotification:context];
+    //[self handleActionWithIdentifier:context[@"identifier"] forRemoteNotification:context];
     
     
 
@@ -48,10 +48,9 @@
 
 
 -(void) handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)remoteNotification {
+  
     
-    
-    
-    
+    NSLog(@"Push Notification");
     
     NSString *question = remoteNotification[@"aps"][@"alert"];
     
@@ -73,11 +72,11 @@
         
         
         
-        
         [InterfaceController openParentApplication:@{@"key": @"sendAnswerToServer", @"numberOfAnswers": [NSString stringWithFormat:@"%u",1],@"question_id":[NSString stringWithFormat:@"%u",[remoteNotification[@"customKey"] intValue]]} reply:^(NSDictionary *replyInfo, NSError *error) {
             NSLog(@"%@",replyInfo);
             
         }];
+         
         
         
     } else {
