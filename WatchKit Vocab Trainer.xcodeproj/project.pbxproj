@@ -26,9 +26,6 @@
 		51DA83151A61657E00F2E962 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51DA83131A61657E00F2E962 /* Interface.storyboard */; };
 		51DA83171A61657E00F2E962 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51DA83161A61657E00F2E962 /* Images.xcassets */; };
 		51DA831A1A61657E00F2E962 /* WatchKit Vocab Trainer WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 51DA82FA1A61657E00F2E962 /* WatchKit Vocab Trainer WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		51DA83B41A61DB1700F2E962 /* libAsyncDisplayKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 51DA83B31A61DB1700F2E962 /* libAsyncDisplayKit.a */; };
-		51DA83B61A61DBA900F2E962 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51DA83B51A61DBA900F2E962 /* AssetsLibrary.framework */; };
-		51DA83B81A61DBB600F2E962 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51DA83B71A61DBB600F2E962 /* Photos.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,10 +102,6 @@
 		51DA83121A61657E00F2E962 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		51DA83141A61657E00F2E962 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		51DA83161A61657E00F2E962 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		51DA83AA1A61DAA500F2E962 /* AsyncDisplayKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AsyncDisplayKit.xcodeproj; path = "../../Downloads/AsyncDisplayKit-master/AsyncDisplayKit.xcodeproj"; sourceTree = "<group>"; };
-		51DA83B31A61DB1700F2E962 /* libAsyncDisplayKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAsyncDisplayKit.a; path = "../../Downloads/AsyncDisplayKit-master/build/Debug-iphoneos/libAsyncDisplayKit.a"; sourceTree = "<group>"; };
-		51DA83B51A61DBA900F2E962 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
-		51DA83B71A61DBB600F2E962 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,9 +109,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51DA83B81A61DBB600F2E962 /* Photos.framework in Frameworks */,
-				51DA83B61A61DBA900F2E962 /* AssetsLibrary.framework in Frameworks */,
-				51DA83B41A61DB1700F2E962 /* libAsyncDisplayKit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,15 +132,11 @@
 		51DA82C41A6164DC00F2E962 = {
 			isa = PBXGroup;
 			children = (
-				51DA83B71A61DBB600F2E962 /* Photos.framework */,
-				51DA83B51A61DBA900F2E962 /* AssetsLibrary.framework */,
-				51DA83B31A61DB1700F2E962 /* libAsyncDisplayKit.a */,
 				51DA82CF1A6164DC00F2E962 /* WatchKit Vocab Trainer */,
 				51DA82E91A6164DD00F2E962 /* WatchKit Vocab TrainerTests */,
 				51DA82FB1A61657E00F2E962 /* WatchKit Vocab Trainer WatchKit Extension */,
 				51DA83101A61657E00F2E962 /* WatchKit Vocab Trainer WatchKit App */,
 				51DA82CE1A6164DC00F2E962 /* Products */,
-				51DA83AA1A61DAA500F2E962 /* AsyncDisplayKit.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -581,10 +567,7 @@
 					"$(inherited)",
 					"/Users/arik-so/Downloads/AsyncDisplayKit-master/build/Debug-iphoneos",
 				);
-				OTHER_LDFLAGS = (
-					"-lc++",
-					"-ObjC",
-				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -599,10 +582,7 @@
 					"$(inherited)",
 					"/Users/arik-so/Downloads/AsyncDisplayKit-master/build/Debug-iphoneos",
 				);
-				OTHER_LDFLAGS = (
-					"-lc++",
-					"-ObjC",
-				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
