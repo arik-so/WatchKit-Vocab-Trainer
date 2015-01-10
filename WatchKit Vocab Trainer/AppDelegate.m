@@ -169,7 +169,7 @@
         };
         
         
-        [FRServer jsonFromURL:@"http://xampp.localhost/watchkit-vocab-trainer/web/category/3/random-question" HTTPMethod:@"GET" attributes:nil HTTPHeaderFieldDictionary:nil andCallbackBlock:finishedDownloading];
+        [FRServer jsonFromURL:@"http://xampp.localhost/watchkit-vocab-trainer/web/category/2/random-question" HTTPMethod:@"GET" attributes:nil HTTPHeaderFieldDictionary:nil andCallbackBlock:finishedDownloading];
     }
     
     

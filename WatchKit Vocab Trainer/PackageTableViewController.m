@@ -90,7 +90,11 @@
     
     if(image){
         
+        cell.imageView.clipsToBounds=YES;
+        cell.imageView.layer.cornerRadius=[self tableView:tableView heightForRowAtIndexPath:indexPath]/2;
+        cell.imageView.contentMode=UIViewContentModeScaleAspectFill;
         cell.imageView.image = image;
+        
         
     }else{
         
@@ -110,6 +114,10 @@
 
     
     return cell;
+}
+
+-(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 75.0;
 }
 
 /*
