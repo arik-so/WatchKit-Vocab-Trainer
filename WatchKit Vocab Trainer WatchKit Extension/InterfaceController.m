@@ -49,7 +49,7 @@
 
 -(void) handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)remoteNotification {
     
-    //NSLog(@"%@",remoteNotification);
+    
     
     
     
@@ -67,8 +67,19 @@
     }
     
     
+    
     if([identifier isEqualToString:@"true"]) {
         [self.answerLabel setText:[NSString stringWithFormat:@"Right 😄\nRight answer: %@: %@",question,rightAnswer]];
+        
+        
+        
+        
+        [InterfaceController openParentApplication:@{@"key": @"sendAnswerToServer", @"numberOfAnswers": [NSString stringWithFormat:@"%u",1],@"question_id":[NSString stringWithFormat:@"%u",[remoteNotification[@"customKey"] intValue]]} reply:^(NSDictionary *replyInfo, NSError *error) {
+            NSLog(@"%@",replyInfo);
+            
+        }];
+        
+        
     } else {
         [self.answerLabel setText:[NSString stringWithFormat:@"Wrong 😖\nRight answer: %@: %@",question,rightAnswer]];
     }
