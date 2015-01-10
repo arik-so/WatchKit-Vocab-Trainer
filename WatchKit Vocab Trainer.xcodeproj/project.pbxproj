@@ -14,6 +14,14 @@
 		51DA82DE1A6164DD00F2E962 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51DA82DD1A6164DD00F2E962 /* Images.xcassets */; };
 		51DA82E11A6164DD00F2E962 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51DA82DF1A6164DD00F2E962 /* LaunchScreen.xib */; };
 		51DA82ED1A6164DD00F2E962 /* WatchKit_Vocab_TrainerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 51DA82EC1A6164DD00F2E962 /* WatchKit_Vocab_TrainerTests.m */; };
+		51DA83011A61657E00F2E962 /* InterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51DA83001A61657E00F2E962 /* InterfaceController.m */; };
+		51DA83041A61657E00F2E962 /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51DA83031A61657E00F2E962 /* NotificationController.m */; };
+		51DA83071A61657E00F2E962 /* GlanceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51DA83061A61657E00F2E962 /* GlanceController.m */; };
+		51DA83091A61657E00F2E962 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51DA83081A61657E00F2E962 /* Images.xcassets */; };
+		51DA830D1A61657E00F2E962 /* WatchKit Vocab Trainer WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = 51DA830C1A61657E00F2E962 /* WatchKit Vocab Trainer WatchKit App.app */; };
+		51DA83151A61657E00F2E962 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51DA83131A61657E00F2E962 /* Interface.storyboard */; };
+		51DA83171A61657E00F2E962 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51DA83161A61657E00F2E962 /* Images.xcassets */; };
+		51DA831A1A61657E00F2E962 /* WatchKit Vocab Trainer WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 51DA82FA1A61657E00F2E962 /* WatchKit Vocab Trainer WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,7 +32,35 @@
 			remoteGlobalIDString = 51DA82CC1A6164DC00F2E962;
 			remoteInfo = "WatchKit Vocab Trainer";
 		};
+		51DA830E1A61657E00F2E962 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 51DA82C51A6164DC00F2E962 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 51DA830B1A61657E00F2E962;
+			remoteInfo = "WatchKit Vocab Trainer WatchKit App";
+		};
+		51DA83181A61657E00F2E962 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 51DA82C51A6164DC00F2E962 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 51DA82F91A61657E00F2E962;
+			remoteInfo = "WatchKit Vocab Trainer WatchKit Extension";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		51DA83211A61657E00F2E962 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				51DA831A1A61657E00F2E962 /* WatchKit Vocab Trainer WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		51DA82CD1A6164DC00F2E962 /* WatchKit Vocab Trainer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WatchKit Vocab Trainer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,6 +76,20 @@
 		51DA82E61A6164DD00F2E962 /* WatchKit Vocab TrainerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "WatchKit Vocab TrainerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		51DA82EB1A6164DD00F2E962 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		51DA82EC1A6164DD00F2E962 /* WatchKit_Vocab_TrainerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WatchKit_Vocab_TrainerTests.m; sourceTree = "<group>"; };
+		51DA82FA1A61657E00F2E962 /* WatchKit Vocab Trainer WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WatchKit Vocab Trainer WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		51DA82FD1A61657E00F2E962 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		51DA82FE1A61657E00F2E962 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		51DA82FF1A61657E00F2E962 /* InterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterfaceController.h; sourceTree = "<group>"; };
+		51DA83001A61657E00F2E962 /* InterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InterfaceController.m; sourceTree = "<group>"; };
+		51DA83021A61657E00F2E962 /* NotificationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationController.h; sourceTree = "<group>"; };
+		51DA83031A61657E00F2E962 /* NotificationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationController.m; sourceTree = "<group>"; };
+		51DA83051A61657E00F2E962 /* GlanceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlanceController.h; sourceTree = "<group>"; };
+		51DA83061A61657E00F2E962 /* GlanceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlanceController.m; sourceTree = "<group>"; };
+		51DA83081A61657E00F2E962 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		51DA830C1A61657E00F2E962 /* WatchKit Vocab Trainer WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WatchKit Vocab Trainer WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		51DA83121A61657E00F2E962 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		51DA83141A61657E00F2E962 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		51DA83161A61657E00F2E962 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +107,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		51DA82F71A61657E00F2E962 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -65,6 +122,8 @@
 			children = (
 				51DA82CF1A6164DC00F2E962 /* WatchKit Vocab Trainer */,
 				51DA82E91A6164DD00F2E962 /* WatchKit Vocab TrainerTests */,
+				51DA82FB1A61657E00F2E962 /* WatchKit Vocab Trainer WatchKit Extension */,
+				51DA83101A61657E00F2E962 /* WatchKit Vocab Trainer WatchKit App */,
 				51DA82CE1A6164DC00F2E962 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -74,6 +133,8 @@
 			children = (
 				51DA82CD1A6164DC00F2E962 /* WatchKit Vocab Trainer.app */,
 				51DA82E61A6164DD00F2E962 /* WatchKit Vocab TrainerTests.xctest */,
+				51DA82FA1A61657E00F2E962 /* WatchKit Vocab Trainer WatchKit Extension.appex */,
+				51DA830C1A61657E00F2E962 /* WatchKit Vocab Trainer WatchKit App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -119,6 +180,48 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		51DA82FB1A61657E00F2E962 /* WatchKit Vocab Trainer WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				51DA82FF1A61657E00F2E962 /* InterfaceController.h */,
+				51DA83001A61657E00F2E962 /* InterfaceController.m */,
+				51DA83021A61657E00F2E962 /* NotificationController.h */,
+				51DA83031A61657E00F2E962 /* NotificationController.m */,
+				51DA83051A61657E00F2E962 /* GlanceController.h */,
+				51DA83061A61657E00F2E962 /* GlanceController.m */,
+				51DA83081A61657E00F2E962 /* Images.xcassets */,
+				51DA82FC1A61657E00F2E962 /* Supporting Files */,
+			);
+			path = "WatchKit Vocab Trainer WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		51DA82FC1A61657E00F2E962 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				51DA82FD1A61657E00F2E962 /* Info.plist */,
+				51DA82FE1A61657E00F2E962 /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		51DA83101A61657E00F2E962 /* WatchKit Vocab Trainer WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				51DA83131A61657E00F2E962 /* Interface.storyboard */,
+				51DA83161A61657E00F2E962 /* Images.xcassets */,
+				51DA83111A61657E00F2E962 /* Supporting Files */,
+			);
+			path = "WatchKit Vocab Trainer WatchKit App";
+			sourceTree = "<group>";
+		};
+		51DA83111A61657E00F2E962 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				51DA83121A61657E00F2E962 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -129,10 +232,12 @@
 				51DA82C91A6164DC00F2E962 /* Sources */,
 				51DA82CA1A6164DC00F2E962 /* Frameworks */,
 				51DA82CB1A6164DC00F2E962 /* Resources */,
+				51DA83211A61657E00F2E962 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				51DA83191A61657E00F2E962 /* PBXTargetDependency */,
 			);
 			name = "WatchKit Vocab Trainer";
 			productName = "WatchKit Vocab Trainer";
@@ -157,6 +262,39 @@
 			productReference = 51DA82E61A6164DD00F2E962 /* WatchKit Vocab TrainerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		51DA82F91A61657E00F2E962 /* WatchKit Vocab Trainer WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 51DA831E1A61657E00F2E962 /* Build configuration list for PBXNativeTarget "WatchKit Vocab Trainer WatchKit Extension" */;
+			buildPhases = (
+				51DA82F61A61657E00F2E962 /* Sources */,
+				51DA82F71A61657E00F2E962 /* Frameworks */,
+				51DA82F81A61657E00F2E962 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				51DA830F1A61657E00F2E962 /* PBXTargetDependency */,
+			);
+			name = "WatchKit Vocab Trainer WatchKit Extension";
+			productName = "WatchKit Vocab Trainer WatchKit Extension";
+			productReference = 51DA82FA1A61657E00F2E962 /* WatchKit Vocab Trainer WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit-extension";
+		};
+		51DA830B1A61657E00F2E962 /* WatchKit Vocab Trainer WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 51DA831B1A61657E00F2E962 /* Build configuration list for PBXNativeTarget "WatchKit Vocab Trainer WatchKit App" */;
+			buildPhases = (
+				51DA830A1A61657E00F2E962 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "WatchKit Vocab Trainer WatchKit App";
+			productName = "WatchKit Vocab Trainer WatchKit App";
+			productReference = 51DA830C1A61657E00F2E962 /* WatchKit Vocab Trainer WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -172,6 +310,12 @@
 					51DA82E51A6164DD00F2E962 = {
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 51DA82CC1A6164DC00F2E962;
+					};
+					51DA82F91A61657E00F2E962 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					51DA830B1A61657E00F2E962 = {
+						CreatedOnToolsVersion = 6.2;
 					};
 				};
 			};
@@ -190,6 +334,8 @@
 			targets = (
 				51DA82CC1A6164DC00F2E962 /* WatchKit Vocab Trainer */,
 				51DA82E51A6164DD00F2E962 /* WatchKit Vocab TrainerTests */,
+				51DA82F91A61657E00F2E962 /* WatchKit Vocab Trainer WatchKit Extension */,
+				51DA830B1A61657E00F2E962 /* WatchKit Vocab Trainer WatchKit App */,
 			);
 		};
 /* End PBXProject section */
@@ -209,6 +355,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		51DA82F81A61657E00F2E962 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				51DA83091A61657E00F2E962 /* Images.xcassets in Resources */,
+				51DA830D1A61657E00F2E962 /* WatchKit Vocab Trainer WatchKit App.app in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		51DA830A1A61657E00F2E962 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				51DA83151A61657E00F2E962 /* Interface.storyboard in Resources */,
+				51DA83171A61657E00F2E962 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +397,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		51DA82F61A61657E00F2E962 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				51DA83041A61657E00F2E962 /* NotificationController.m in Sources */,
+				51DA83011A61657E00F2E962 /* InterfaceController.m in Sources */,
+				51DA83071A61657E00F2E962 /* GlanceController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -240,6 +414,16 @@
 			isa = PBXTargetDependency;
 			target = 51DA82CC1A6164DC00F2E962 /* WatchKit Vocab Trainer */;
 			targetProxy = 51DA82E71A6164DD00F2E962 /* PBXContainerItemProxy */;
+		};
+		51DA830F1A61657E00F2E962 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 51DA830B1A61657E00F2E962 /* WatchKit Vocab Trainer WatchKit App */;
+			targetProxy = 51DA830E1A61657E00F2E962 /* PBXContainerItemProxy */;
+		};
+		51DA83191A61657E00F2E962 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 51DA82F91A61657E00F2E962 /* WatchKit Vocab Trainer WatchKit Extension */;
+			targetProxy = 51DA83181A61657E00F2E962 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -258,6 +442,14 @@
 				51DA82E01A6164DD00F2E962 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		51DA83131A61657E00F2E962 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				51DA83141A61657E00F2E962 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -395,6 +587,62 @@
 			};
 			name = Release;
 		};
+		51DA831C1A61657E00F2E962 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IBSC_MODULE = WatchKit_Vocab_Trainer_WatchKit_Extension;
+				INFOPLIST_FILE = "WatchKit Vocab Trainer WatchKit App/Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Debug;
+		};
+		51DA831D1A61657E00F2E962 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				IBSC_MODULE = WatchKit_Vocab_Trainer_WatchKit_Extension;
+				INFOPLIST_FILE = "WatchKit Vocab Trainer WatchKit App/Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Release;
+		};
+		51DA831F1A61657E00F2E962 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "WatchKit Vocab Trainer WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		51DA83201A61657E00F2E962 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "WatchKit Vocab Trainer WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -420,6 +668,22 @@
 			buildConfigurations = (
 				51DA82F41A6164DD00F2E962 /* Debug */,
 				51DA82F51A6164DD00F2E962 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		51DA831B1A61657E00F2E962 /* Build configuration list for PBXNativeTarget "WatchKit Vocab Trainer WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				51DA831C1A61657E00F2E962 /* Debug */,
+				51DA831D1A61657E00F2E962 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		51DA831E1A61657E00F2E962 /* Build configuration list for PBXNativeTarget "WatchKit Vocab Trainer WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				51DA831F1A61657E00F2E962 /* Debug */,
+				51DA83201A61657E00F2E962 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
