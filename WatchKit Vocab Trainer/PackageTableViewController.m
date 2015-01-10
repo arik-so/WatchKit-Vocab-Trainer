@@ -8,7 +8,11 @@
 
 #import "PackageTableViewController.h"
 
+
+
 @interface PackageTableViewController ()
+
+@property (strong, nonatomic) NSArray *categories;
 
 @end
 
@@ -22,6 +26,25 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    [self fetchFromServer];
+    
+}
+
+- (void)fetchFromServer{
+    
+    // get all the categories
+    dispatch_async(dispatch_queue_create(nil, nil), ^{
+        NSString *jsonString = [[NSString alloc] initWithContentsOfURL:[NSURL URLWithString:@"http://xampp.localhost/watchkit-vocab-trainer/web/categories"] encoding:NSUTF8StringEncoding error:nil];
+        
+        self.categories = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:nil error:nil];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+        });
+        
+    });
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,9 +61,8 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 2;
+    return self.categories.count;
 }
 
 
@@ -48,14 +70,27 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
 
     
+    NSDictionary *details = self.categories[indexPath.row];
+    NSString *name = details[@"name"];
+    NSString *imageURL = details[@"image_url"];
     
+    ASNetworkImageNode *image = [[ASNetworkImageNode alloc] init];
+    [image setURL:[NSURL URLWithString:imageURL]];
+    image.placeholderEnabled = YES;
+    image.delegate = self;
     
-    
-    cell.textLabel.text=@"TEXT";
+    cell.textLabel.text = name;
+    cell.imageView.image = image.image;
     
     return cell;
 }
 
+
+- (void)imageNode:(ASNetworkImageNode *)imageNode didLoadImage:(UIImage *)image{
+    
+    [self.tableView reloadData];
+    
+}
 
 /*
 // Override to support conditional editing of the table view.
