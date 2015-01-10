@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet WKInterfaceButton *answer3Button;
 @property (strong, nonatomic) NSArray *answers;
 @property(strong,nonatomic) NSMutableDictionary *context;
+@property(nonatomic) int numberOfGuesses;
 @end
 
 
@@ -57,28 +58,62 @@
     [super didDeactivate];
 }
 
--(IBAction)pressButton1:(id)sender {
-    [self handleButtonWithIndex:0];
+- (void)didPressButton:(int)buttonIndex{
+    
+    WKInterfaceButton *pressedButton = nil;
+    if(buttonIndex == 0){
+        pressedButton = self.answer1Button;
+    }else if(buttonIndex == 1){
+        pressedButton = self.answer2Button;
+    }else if(buttonIndex == 2){
+        pressedButton = self.answer3Button;
+    }
+    
+    if([self.answers[buttonIndex][@"identifier"] isEqualToString:@"true"]) {
+        self.numberOfGuesses++;
+        // [sender setBackgroundColor:[UIColor greenColor] for];
+        [pressedButton setColor:[UIColor colorWithHue:120/360.0 saturation:1 brightness:0.4 alpha:1.0]];
+        [self handleButtonWithIndex:buttonIndex];
+        
+    }else {
+        self.numberOfGuesses++;
+        [pressedButton setColor:[UIColor colorWithHue:0/360.0 saturation:1 brightness:0.4 alpha:1.0]];
+    }
 }
 
--(IBAction)pressButton2:(id)sender {
-    [self handleButtonWithIndex:1];
+-(IBAction)pressButton1:(WKInterfaceButton *)sender {
+    [self didPressButton:0];
 }
 
--(IBAction)pressButton3:(id)sender {
-    [self handleButtonWithIndex:2];
+-(IBAction)pressButton2:(WKInterfaceButton *)sender {
+        [self didPressButton:1];
+}
+
+-(IBAction)pressButton3:(WKInterfaceButton *)sender {
+        [self didPressButton:2];
 }
 
 -(void) handleButtonWithIndex:(int) index {
     
     //    NSLog(@"Button with index: %u",index);
     
-    [self.context setObject:self.answers[index][@"identifier"] forKey:@"identifier"];
+    //[self.context setObject:self.answers[index][@"identifier"] forKey:@"identifier"];
     
     //[self popToRootController];
     
+    [InterfaceController openParentApplication:@{@"1": @"object"} reply:^(NSDictionary *replyInfo, NSError *error) {
+        //NSLog(@"%@",replyInfo);
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self pushControllerWithName:@"QuestionInterfaceController" context:replyInfo];
+        });
+        
+        
+        //[self.quitAppButton setHidden:false];
+        //[self.nextQuestionButton setHidden:false];
+    }];
     
-    [self pushControllerWithName:@"InterfaceController" context:self.context];
+    //[self pushControllerWithName:@"InterfaceController" context:self.context];
     
     
     

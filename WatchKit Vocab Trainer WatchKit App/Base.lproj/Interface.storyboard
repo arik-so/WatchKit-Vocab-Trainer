@@ -30,10 +30,10 @@
             </objects>
             <point key="canvasLocation" x="235" y="347"/>
         </scene>
-        <!--Question Interface Controller-->
+        <!--QuestionInterfaceController-->
         <scene sceneID="Cr5-yT-8aM">
             <objects>
-                <controller id="gXR-bL-rBU" customClass="QuestionInterfaceController">
+                <controller identifier="QuestionInterfaceController" id="gXR-bL-rBU" customClass="QuestionInterfaceController">
                     <items>
                         <label alignment="center" text="Label" textAlignment="center" numberOfLines="0" id="NUU-ug-d4P">
                             <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
