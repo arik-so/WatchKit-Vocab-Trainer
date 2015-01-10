@@ -49,14 +49,14 @@
 
 -(void) handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)remoteNotification {
     
-    NSLog(@"%@",remoteNotification);
+    //NSLog(@"%@",remoteNotification);
     
     NSString *question = remoteNotification[@"aps"][@"alert"];
     
     
     NSArray *answers = remoteNotification[@"WatchKit Simulator Actions"];
     
-    NSString *rightAnswer;
+    NSString *rightAnswer = @"No answer was correct.";
     for(NSDictionary *dic in answers) {
         if ([dic[@"identifier"] boolValue] == true) {
             rightAnswer=dic[@"title"];
@@ -72,10 +72,13 @@
     }
     
     [InterfaceController openParentApplication:@{@"1": @"object"} reply:^(NSDictionary *replyInfo, NSError *error) {
+        NSLog(@"%@",replyInfo);
         self.nextQuestion = replyInfo;
         [self.quitAppButton setHidden:false];
         [self.nextQuestionButton setHidden:false];
     }];
+    
+    
 
 
 }

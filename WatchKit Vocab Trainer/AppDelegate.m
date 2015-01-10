@@ -35,6 +35,9 @@
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
+    
+        
+    
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
@@ -44,8 +47,112 @@
 
 -(void)application:(UIApplication *)application handleWatchKitExtensionRequest:(NSDictionary *)userInfo reply:(void (^)(NSDictionary *replyInfo))reply {
     
-    reply([AppDelegate factoryJSONQuestion]);
+    NSLog(@"watchkit extension called");
+    
+    void (^finishedDownloading)(NSDictionary *dic) = ^void(NSDictionary *dic) {
+        
+        NSString *question = dic[@"question"][@"text"];
+        
+        
+        int r = arc4random() % 3;
+        
+        NSString *answer1;
+        NSString *identifier1;
+        NSString *answer2;
+        NSString *identifier2;
+        NSString *answer3;
+        NSString *identifier3;
+        
+        
+        
+        NSMutableArray *answerOptions = @[].mutableCopy;
+
+        
+        [answerOptions addObject:@{@"answer": dic[@"correct_answers"][0][@"value"], @"identifier": @"true"}];
+        
+        
+        for(int i = 0; i < MIN(2, [dic[@"wrong_answers"] count]); i++){
+            
+            NSDictionary *currentAddition = @{@"answer": dic[@"wrong_answers"][i][@"value"], @"identifier": @"false"};
+            
+            if(arc4random() % 2 == 1){
+                
+                [answerOptions insertObject:currentAddition atIndex:0];
+                
+            }else{
+                
+                [answerOptions addObject:currentAddition];
+                
+            }
+            
+        }
+        
+        answer1 = answerOptions[0][@"answer"];
+        identifier1 = answerOptions[0][@"identifier"];
+        
+        answer2 = answerOptions[1][@"answer"];
+        identifier2 = answerOptions[1][@"identifier"];
+        
+        answer3 = answerOptions[2][@"answer"];
+        identifier3 = answerOptions[2][@"identifier"];
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        /*
+        
+        if(r == 0) {
+            answer1 = dic[@"correct_answers"][0][@"value"];
+            identifier1 = @"true";
+        } else if(r == 1) {
+            answer2 = dic[@"correct_answers"][0][@"value"];
+            identifier2 = @"true";
+        } else if(r == 2) {
+            answer3 = dic[@"correct_answers"][0][@"value"];
+            identifier3 = @"true";
+        }
+        
+        int wrongAnswerIndex = 0;
+        
+        NSArray *wrongAnswers = dic[@"wrong_answers"];
+        
+        if(r != 0) {
+            answer1 = wrongAnswers[wrongAnswerIndex][@"value"];
+            identifier1 = @"false";
+            wrongAnswerIndex++;
+        } else if(r != 1) {
+            answer2 = wrongAnswers[wrongAnswerIndex][@"value"];
+            identifier2 = @"false";
+            wrongAnswerIndex++;
+        } else if(r != 2) {
+            answer3 = wrongAnswers[wrongAnswerIndex][@"value"];
+            identifier3 = @"false";
+            wrongAnswerIndex++;
+        }*/
+        
+        
+        
+        NSString *questionString = [NSString stringWithFormat:@"{    \"aps\": {        \"alert\": \"%@\",        \"title\": \"Optional title\",        \"category\": \"myCategory\"    },        \"WatchKit Simulator Actions\": [                                   {                                        \"title\": \"%@\",                                        \"identifier\": \"%@\"                                   } , {                                        \"title\": \"%@\",                                        \"identifier\": \"%@\"                                   } , {                                        \"title\": \"%@\",                                        \"identifier\": \"%@\"                                   }                                   ]}",question,answer1,identifier1,answer2,identifier2,answer3,identifier3];
+        
+        
+        
+        reply([NSJSONSerialization JSONObjectWithData:[questionString  dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil]);
+        
+    };
+    
+    
+    [FRServer jsonFromURL:@"http://xampp.localhost/watchkit-vocab-trainer/web/category/3/random-question" HTTPMethod:@"GET" attributes:nil HTTPHeaderFieldDictionary:nil andCallbackBlock:finishedDownloading];
+    
+    
 }
+
+
+
 
 
 +(NSDictionary *) factoryJSONQuestion {
@@ -59,11 +166,11 @@
     
     NSString *answer3 = @"Banana";
     NSString *identifier3 = @"true";
-
+    
     
     NSString *questionString = [NSString stringWithFormat:@"{    \"aps\": {        \"alert\": \"%@\",        \"title\": \"Optional title\",        \"category\": \"myCategory\"    },        \"WatchKit Simulator Actions\": [                                   {                                        \"title\": \"%@\",                                        \"identifier\": \"%@\"                                   } , {                                        \"title\": \"%@\",                                        \"identifier\": \"%@\"                                   } , {                                        \"title\": \"%@\",                                        \"identifier\": \"%@\"                                   }                                   ]}",question,answer1,identifier1,answer2,identifier2,answer3,identifier3];
     
-
+    
     return [NSJSONSerialization JSONObjectWithData:[questionString  dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
 }
 

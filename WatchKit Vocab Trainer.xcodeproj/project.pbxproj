@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		5163774B1A618336005E83CA /* PackageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5163774A1A618336005E83CA /* PackageTableViewController.m */; };
 		5163774E1A61904D005E83CA /* QuestionInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5163774D1A61904D005E83CA /* QuestionInterfaceController.m */; };
+		51B2044A1A619F3100D89400 /* FRServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B204471A619F3100D89400 /* FRServer.m */; };
+		51B2044E1A61A3A200D89400 /* FRServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B2044D1A61A3A200D89400 /* FRServerRequest.m */; };
+		51D036E11A61AEB500CA112A /* MultipleSelectionTableRowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D036E01A61AEB500CA112A /* MultipleSelectionTableRowController.m */; };
 		51DA82D31A6164DD00F2E962 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 51DA82D21A6164DD00F2E962 /* main.m */; };
 		51DA82D61A6164DD00F2E962 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 51DA82D51A6164DD00F2E962 /* AppDelegate.m */; };
 		51DA82DC1A6164DD00F2E962 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51DA82DA1A6164DD00F2E962 /* Main.storyboard */; };
@@ -68,6 +71,12 @@
 		5163774A1A618336005E83CA /* PackageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PackageTableViewController.m; sourceTree = "<group>"; };
 		5163774C1A61904D005E83CA /* QuestionInterfaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionInterfaceController.h; sourceTree = "<group>"; };
 		5163774D1A61904D005E83CA /* QuestionInterfaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionInterfaceController.m; sourceTree = "<group>"; };
+		51B204461A619F3100D89400 /* FRServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRServer.h; sourceTree = "<group>"; };
+		51B204471A619F3100D89400 /* FRServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRServer.m; sourceTree = "<group>"; };
+		51B2044C1A61A3A200D89400 /* FRServerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRServerRequest.h; sourceTree = "<group>"; };
+		51B2044D1A61A3A200D89400 /* FRServerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRServerRequest.m; sourceTree = "<group>"; };
+		51D036DF1A61AEB500CA112A /* MultipleSelectionTableRowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipleSelectionTableRowController.h; sourceTree = "<group>"; };
+		51D036E01A61AEB500CA112A /* MultipleSelectionTableRowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipleSelectionTableRowController.m; sourceTree = "<group>"; };
 		51DA82CD1A6164DC00F2E962 /* WatchKit Vocab Trainer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WatchKit Vocab Trainer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		51DA82D11A6164DD00F2E962 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		51DA82D21A6164DD00F2E962 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -152,6 +161,10 @@
 				51DA82DA1A6164DD00F2E962 /* Main.storyboard */,
 				51DA82DD1A6164DD00F2E962 /* Images.xcassets */,
 				51DA82DF1A6164DD00F2E962 /* LaunchScreen.xib */,
+				51B204461A619F3100D89400 /* FRServer.h */,
+				51B204471A619F3100D89400 /* FRServer.m */,
+				51B2044C1A61A3A200D89400 /* FRServerRequest.h */,
+				51B2044D1A61A3A200D89400 /* FRServerRequest.m */,
 				51DA82D01A6164DD00F2E962 /* Supporting Files */,
 			);
 			path = "WatchKit Vocab Trainer";
@@ -190,6 +203,8 @@
 				51DA83001A61657E00F2E962 /* InterfaceController.m */,
 				5163774C1A61904D005E83CA /* QuestionInterfaceController.h */,
 				5163774D1A61904D005E83CA /* QuestionInterfaceController.m */,
+				51D036DF1A61AEB500CA112A /* MultipleSelectionTableRowController.h */,
+				51D036E01A61AEB500CA112A /* MultipleSelectionTableRowController.m */,
 				51DA83021A61657E00F2E962 /* NotificationController.h */,
 				51DA83031A61657E00F2E962 /* NotificationController.m */,
 				51DA83051A61657E00F2E962 /* GlanceController.h */,
@@ -388,7 +403,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51B2044A1A619F3100D89400 /* FRServer.m in Sources */,
 				51DA82D61A6164DD00F2E962 /* AppDelegate.m in Sources */,
+				51B2044E1A61A3A200D89400 /* FRServerRequest.m in Sources */,
 				5163774B1A618336005E83CA /* PackageTableViewController.m in Sources */,
 				51DA82D31A6164DD00F2E962 /* main.m in Sources */,
 			);
@@ -409,6 +426,7 @@
 				51DA83041A61657E00F2E962 /* NotificationController.m in Sources */,
 				5163774E1A61904D005E83CA /* QuestionInterfaceController.m in Sources */,
 				51DA83011A61657E00F2E962 /* InterfaceController.m in Sources */,
+				51D036E11A61AEB500CA112A /* MultipleSelectionTableRowController.m in Sources */,
 				51DA83071A61657E00F2E962 /* GlanceController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

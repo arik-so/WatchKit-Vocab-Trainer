@@ -40,6 +40,10 @@
     
     
     
+    
+    
+    
+    
     // Configure interface objects here.
 }
 
@@ -66,16 +70,22 @@
 }
 
 -(void) handleButtonWithIndex:(int) index {
-
-//    NSLog(@"Button with index: %u",index);
+    
+    //    NSLog(@"Button with index: %u",index);
     
     [self.context setObject:self.answers[index][@"identifier"] forKey:@"identifier"];
     
+    //[self popToRootController];
+    
+    
     [self pushControllerWithName:@"InterfaceController" context:self.context];
+    
+    
+    
 }
 
 //-(id)contextForSegueWithIdentifier:(NSString *)segueIdentifier {
-    
+
 //}
 
 @end

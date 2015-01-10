@@ -6,7 +6,9 @@
 //  Copyright (c) 2015 WKH. All rights reserved.
 //
 
+
 #import <UIKit/UIKit.h>
+#import "FRServer.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

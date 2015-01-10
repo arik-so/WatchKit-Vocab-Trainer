@@ -16,7 +16,7 @@
                         <separator alignment="left" id="rys-qw-bhy"/>
                         <button width="1" alignment="left" hidden="YES" title="Next" id="hL5-81-Vh6">
                             <connections>
-                                <segue destination="gXR-bL-rBU" kind="push" id="mCH-BF-gfm"/>
+                                <segue destination="gXR-bL-rBU" kind="push" id="RRH-KT-Lnc"/>
                             </connections>
                         </button>
                         <button width="1" alignment="left" hidden="YES" title="Quit" id="cbJ-vv-ieb"/>
@@ -35,7 +35,7 @@
             <objects>
                 <controller id="gXR-bL-rBU" customClass="QuestionInterfaceController">
                     <items>
-                        <label alignment="center" text="Label" textAlignment="center" id="NUU-ug-d4P">
+                        <label alignment="center" text="Label" textAlignment="center" numberOfLines="0" id="NUU-ug-d4P">
                             <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                         </label>
                         <separator alignment="left" id="5gj-Wg-NXa"/>
@@ -63,7 +63,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="482" y="350"/>
+            <point key="canvasLocation" x="496" y="347"/>
         </scene>
         <!--Glance Interface Controller-->
         <scene sceneID="BOz-TT-tkC">
