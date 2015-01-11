@@ -73,11 +73,41 @@
         self.numberOfGuesses++;
         // [sender setBackgroundColor:[UIColor greenColor] for];
         [pressedButton setColor:[UIColor colorWithHue:120/360.0 saturation:1 brightness:0.4 alpha:1.0]];
-        [self handleButtonWithIndex:buttonIndex];
+        [self handleButton];
         
     }else {
         self.numberOfGuesses++;
         [pressedButton setColor:[UIColor colorWithHue:0/360.0 saturation:1 brightness:0.4 alpha:1.0]];
+        
+        
+        
+        
+        
+        
+        
+        if(self.numberOfGuesses == 2) {
+            if([self.answers[0][@"identifier"] isEqualToString:@"true"]) {
+                [self.answer1Button setColor:[UIColor colorWithHue:120/360.0 saturation:1 brightness:0.4 alpha:1.0]];
+            } else {
+                [self.answer1Button setColor:[UIColor colorWithHue:0/360.0 saturation:1 brightness:0.4 alpha:1.0]];
+            }
+            if([self.answers[1][@"identifier"] isEqualToString:@"true"]) {
+                [self.answer2Button setColor:[UIColor colorWithHue:120/360.0 saturation:1 brightness:0.4 alpha:1.0]];
+            } else {
+                [self.answer2Button setColor:[UIColor colorWithHue:0/360.0 saturation:1 brightness:0.4 alpha:1.0]];
+            }
+            if([self.answers[2][@"identifier"] isEqualToString:@"true"]) {
+                [self.answer3Button setColor:[UIColor colorWithHue:120/360.0 saturation:1 brightness:0.4 alpha:1.0]];
+            } else {
+                [self.answer3Button setColor:[UIColor colorWithHue:0/360.0 saturation:1 brightness:0.4 alpha:1.0]];
+            }
+            
+            [self handleButton];
+        }
+        
+        
+        
+        
     }
 }
 
@@ -86,14 +116,14 @@
 }
 
 -(IBAction)pressButton2:(WKInterfaceButton *)sender {
-        [self didPressButton:1];
+    [self didPressButton:1];
 }
 
 -(IBAction)pressButton3:(WKInterfaceButton *)sender {
-        [self didPressButton:2];
+    [self didPressButton:2];
 }
 
--(void) handleButtonWithIndex:(int) index {
+-(void) handleButton {
     
     //    NSLog(@"Button with index: %u",index);
     

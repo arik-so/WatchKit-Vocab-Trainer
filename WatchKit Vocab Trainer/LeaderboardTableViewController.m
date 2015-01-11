@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.title=@"Leaderboard";
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -32,26 +32,60 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
+
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
+
     // Return the number of rows in the section.
-    return 0;
+    return 5;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
-    // Configure the cell...
+    
+    
+    switch (indexPath.row) {
+        case 0:
+            cell.textLabel.text=@"1st: Heidi Mair";
+            cell.detailTextLabel.text=@"97% correct answers overall";
+            break;
+        case 1:
+            cell.textLabel.text=@"2nd: Batterie Frau";
+            cell.detailTextLabel.text=@"91% correct answers overall";
+            break;
+        case 2:
+            cell.textLabel.text=@"3rd: Dylan Marriott";
+            cell.detailTextLabel.text=@"90% correct answers overall";
+            break;
+        case 3:
+            cell.textLabel.text=@"4th: Patrick Balestra";
+            cell.detailTextLabel.text=@"85% correct answers overall";
+            break;
+        case 4:
+            cell.textLabel.text=@"5th: Me";
+            cell.detailTextLabel.text=@"58% correct answers overall";
+            break;
+        default:
+            break;
+    }
+    
+
+    
+    cell.imageView.image=[UIImage imageNamed:@"user_male3-50.png"];
     
     return cell;
 }
-*/
+
+
+-(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 60;
+}
+
 
 /*
 // Override to support conditional editing of the table view.

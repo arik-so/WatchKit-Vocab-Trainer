@@ -26,6 +26,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title=@"EverLearn";
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -45,81 +47,116 @@
 
 - (void)fetchFromServer{
     
-    self.categoryImages = @{}.mutableCopy;
-    self.packages = @[].mutableCopy;
-    self.sortedSections = @[].mutableCopy;
-    [self.packages removeAllObjects];
-    self.sections =@{}.mutableCopy;
+    
+    
+    /*
     
     // get all the categories
-    /*dispatch_async(dispatch_queue_create(nil, nil), ^{
-     NSString *jsonString = [[NSString alloc] initWithContentsOfURL:[NSURL URLWithString:@"http://xampp.localhost/watchkit-vocab-trainer/web/categories"] encoding:NSUTF8StringEncoding error:nil];
-     
-     self.categories = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:nil error:nil];
-     
-     dispatch_async(dispatch_get_main_queue(), ^{
-     
-     
-     for(NSDictionary *dic in self.categories) {
-     [self.packages addObject:[[Package alloc] initWithJSON:dic]];
-     }
-     
-     
-     [self.refreshControl endRefreshing];
-     [self.tableView reloadData];
-     
-     dispatch_async(dispatch_queue_create(nil, nil), ^{
-     
-     NSString *answersCalculation = [[NSString alloc] initWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://xampp.localhost/watchkit-vocab-trainer/web/device/%@/stats",[UIDevice currentDevice].identifierForVendor.UUIDString]] encoding:NSUTF8StringEncoding error:nil];
-     
-     dispatch_async(dispatch_get_main_queue(), ^{
-     
-     NSArray *answers = [NSJSONSerialization JSONObjectWithData:[answersCalculation dataUsingEncoding:NSUTF8StringEncoding] options:nil error:nil];
-     
-     
-     for(NSDictionary *dic in answers) {
-     NSString *category_id = [dic valueForKey:@"category_id"];
-     
-     if(![category_id isEqual:[NSNull null]]) {
-     
-     
-     for (Package *package in self.packages) {
-     if([package.uuid isEqualToString:category_id]) {
-     Answer *answer = [[Answer alloc] initWithJSON:dic];
-     [package addAnswer:answer];
-     }
-     }
-     
-     
-     }
-     }
-     
-     });
-     });
-     });
-     });*/
+    dispatch_async(dispatch_queue_create(nil, nil), ^{
+        NSString *jsonString = [[NSString alloc] initWithContentsOfURL:[NSURL URLWithString:@"http://xampp.localhost/watchkit-vocab-trainer/web/categories"] encoding:NSUTF8StringEncoding error:nil];
+        
+        self.categories = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:nil error:nil];
+        
+        
+        self.categoryImages = @{}.mutableCopy;
+        self.packages = @[].mutableCopy;
+        self.sortedSections = @[].mutableCopy;
+        self.sections =@{}.mutableCopy;
+        
+        
+        for(NSDictionary *currentCategory in self.categories) {
+            
+            NSString *sectionName = currentCategory[@"section"];
+            Section *section = self.sections[sectionName];
+            
+            if(!section) {
+                section = [[Section alloc] init];
+            }
+            
+            // package == category
+            // thus, we add a packge representing this category to the section
+            [section.packages addObject:[[Package alloc] initWithJSON:currentCategory]];
+            
+            section.sectionID = sectionName;
+            self.sections[sectionName] = section;
+            
+        }
+        
+        
+        // sort the sections alphabetically
+        
+        NSArray *sortedKeys = [[self.sections allKeys] sortedArrayUsingSelector: @selector(compare:)];
+        
+        for (NSString *key in sortedKeys) {
+            [self.sortedSections addObject: [self.sections objectForKey: key]];
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            NSLog(@"right here, goddammit!");
+            
+            [self.refreshControl endRefreshing];
+            [self.tableView reloadData];
+
+        });
+    });
+    
+    
+    
+    return;
+    
+    */
+    
+    
     
     [FRServer stringFromURL:@"http://xampp.localhost/watchkit-vocab-trainer/web/categories" HTTPMethod:@"GET" attributes:nil HTTPHeaderFieldDictionary:nil andCallbackBlock:^(NSString *string) {
         
+        if(!string){
+            
+            UIAlertView *errorView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Could not load categories from server." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [errorView show];
+            
+            [self.refreshControl endRefreshing];
+            
+            return;
+            
+        }
         
         self.categories = [NSJSONSerialization JSONObjectWithData:[string dataUsingEncoding:NSUTF8StringEncoding] options:nil error:nil];
         
+        self.categoryImages = @{}.mutableCopy;
+        self.packages = @[].mutableCopy;
+        self.sortedSections = @[].mutableCopy;
+        self.sections =@{}.mutableCopy;
+        
         for(NSDictionary *dic in self.categories) {
-            Section *section = [self.sections valueForKey:dic[@"section"]];
+            
+            NSString *sectionName = dic[@"section"];
+            Section *section = self.sections[sectionName];
             
             if(!section) {
-                
                 section = [[Section alloc] init];
-                section.sectionID = dic[@"section"];
-                [self.sections setObject:section forKey:dic[@"section"]];
             }
             
+            // package == category
+            // thus, we add a packge representing this category to the section
             [section.packages addObject:[[Package alloc] initWithJSON:dic]];
+            
+            section.sectionID = sectionName;
+            self.sections[sectionName] = section;
             
             
             //[self.packages addObject:[[Package alloc] initWithJSON:dic]];
         }
+
         
+        // sort the sections alphabetically
+        
+        NSArray *sortedKeys = [[self.sections allKeys] sortedArrayUsingSelector: @selector(compare:)];
+        
+        for (NSString *key in sortedKeys) {
+            [self.sortedSections addObject: [self.sections objectForKey: key]];
+        }
         
         
         
@@ -150,13 +187,11 @@
                 }
             }
             
-            NSArray *sortedKeys = [[self.sections allKeys] sortedArrayUsingSelector: @selector(compare:)];
             
-            for (NSString *key in sortedKeys) {
-                [self.sortedSections addObject: [self.sections objectForKey: key]];
-            }
             
             [self.refreshControl endRefreshing];
+            
+            
             
             [self.tableView reloadData];
             
@@ -223,11 +258,32 @@
         
     }
     
+    // [cell.a.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    cell.accessoryView = nil;
+    
+    if(indexPath.section==0) {
+        UIButton *buy = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        buy.frame=CGRectMake(self.view.frame.size.width-70, 20, 60, 30);
+        [buy setTitle:@"$0.99" forState:UIControlStateNormal];
+        buy.layer.borderWidth=1;
+        buy.layer.cornerRadius=5;
+        buy.layer.borderColor=[[UIColor blueColor] CGColor];
+        cell.accessoryView = buy;
+        [buy addTarget:self action:@selector(inAppKauf:) forControlEvents:UIControlEventTouchUpInside];
+        // [cell.contentView addSubview:buy];
+    }
+    
     cell.textLabel.text = name;
     
     
     return cell;
 }
+
+-(void) inAppKauf:(UIButton *) sender {
+    UIAlertView *buy = [[UIAlertView alloc] initWithTitle:@"Confirm In-App Purchase" message:@"\nDo you want to buy \"Celebrity Quiz\" for $0.99?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Buy", nil];
+    [buy show];
+}
+
 
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 75.0;

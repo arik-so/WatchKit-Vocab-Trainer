@@ -30,7 +30,7 @@
     
     self.currentpackage=package;
     NSLog(@"%lu",(unsigned long)package.answers.count);
-    
+    self.title=package.name;
     
     self.answers = package.answers;
     
