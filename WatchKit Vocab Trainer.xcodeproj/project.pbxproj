@@ -30,6 +30,7 @@
 		51DA83151A61657E00F2E962 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51DA83131A61657E00F2E962 /* Interface.storyboard */; };
 		51DA83171A61657E00F2E962 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51DA83161A61657E00F2E962 /* Images.xcassets */; };
 		51DA831A1A61657E00F2E962 /* WatchKit Vocab Trainer WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 51DA82FA1A61657E00F2E962 /* WatchKit Vocab Trainer WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		51DA83BC1A629C4600F2E962 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51DA83BB1A629C4600F2E962 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +115,7 @@
 		51DA83121A61657E00F2E962 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		51DA83141A61657E00F2E962 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		51DA83161A61657E00F2E962 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		51DA83BB1A629C4600F2E962 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51DA83BC1A629C4600F2E962 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +147,7 @@
 		51DA82C41A6164DC00F2E962 = {
 			isa = PBXGroup;
 			children = (
+				51DA83BB1A629C4600F2E962 /* CoreLocation.framework */,
 				51DA82CF1A6164DC00F2E962 /* WatchKit Vocab Trainer */,
 				51DA82E91A6164DD00F2E962 /* WatchKit Vocab TrainerTests */,
 				51DA82FB1A61657E00F2E962 /* WatchKit Vocab Trainer WatchKit Extension */,
@@ -591,6 +595,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "WatchKit Vocab Trainer/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -606,6 +611,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "WatchKit Vocab Trainer/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

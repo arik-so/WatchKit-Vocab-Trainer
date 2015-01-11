@@ -11,7 +11,9 @@
 #import "FRServer.h"
 #import "FRLocalStorage.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+#import <CoreLocation/CoreLocation.h>
+
+@interface AppDelegate : UIResponder <UIApplicationDelegate, CLLocationManagerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 +(void) setPackageID:(int) packageID;

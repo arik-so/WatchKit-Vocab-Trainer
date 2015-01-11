@@ -8,7 +8,11 @@
 
 #import "AppDelegate.h"
 
+
+
 @interface AppDelegate ()
+
+@property (strong, nonatomic) CLLocationManager *manager;
 
 @end
 
@@ -17,7 +21,32 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    self.manager = [[CLLocationManager alloc] init];
+    [self.manager requestAlwaysAuthorization];
+    
+    self.manager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+    self.manager.distanceFilter = 20;
+    self.manager.delegate = self;
+    
+    [self.manager startUpdatingLocation];
+    
     return YES;
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
+    
+    // NSLog(@"Locations: %@", locations);
+    
+    CLLocation *lastLocation = locations.firstObject;
+    
+    if(lastLocation.speed < 1.5){ // we are more or less stationary
+        
+        NSLog(@"Location property suitable for quiz. Now a push notification should be triggered – if Apple allowed it!");
+        
+    }
+    
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
