@@ -1,19 +1,19 @@
 {
     "aps": {
-        "alert": "First question",
+        "alert": "What's the Capital of 'Jura'?",
         "title": "Optional title",
         "category": "myCategory"
     },
     
     "WatchKit Simulator Actions": [
                                    {
-                                        "title": "wrong answer",
+                                        "title": "Bern",
                                         "identifier": "false"
                                    } , {
-                                        "title": "right answer",
+                                        "title": "Delemont (Delsberg)",
                                         "identifier": "true"
                                    } , {
-                                        "title": "wrong answer",
+                                        "title": "Genf",
                                         "identifier": "false"
                                    }
                                    ],

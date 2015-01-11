@@ -83,7 +83,7 @@
             <objects>
                 <notificationController id="YCC-NB-fut">
                     <items>
-                        <label alignment="center" text="Alert Label" id="XkS-y5-khE">
+                        <label alignment="center" text="Alert Label" textAlignment="center" numberOfLines="0" id="XkS-y5-khE">
                             <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                         </label>
                         <separator alignment="left" id="yvH-QF-DsQ"/>
