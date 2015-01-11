@@ -9,10 +9,13 @@
 
 #import <UIKit/UIKit.h>
 #import "FRServer.h"
+#import "FRLocalStorage.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
++(void) setPackageID:(int) packageID;
++(int) getPackageID;
 
 
 @end

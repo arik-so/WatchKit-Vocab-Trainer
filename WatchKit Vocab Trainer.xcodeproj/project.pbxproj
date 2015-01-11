@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		51010C561A6293160045D994 /* FRLocalStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 51010C551A6293160045D994 /* FRLocalStorage.m */; };
 		511BAA961A626508001E87AB /* PackageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 511BAA951A626508001E87AB /* PackageDetailViewController.m */; };
 		511BAA991A6265AA001E87AB /* Package.m in Sources */ = {isa = PBXBuildFile; fileRef = 511BAA981A6265AA001E87AB /* Package.m */; };
 		511BAA9C1A62720D001E87AB /* Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = 511BAA9B1A62720D001E87AB /* Answer.m */; };
@@ -70,6 +71,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		51010C541A6293160045D994 /* FRLocalStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRLocalStorage.h; sourceTree = "<group>"; };
+		51010C551A6293160045D994 /* FRLocalStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRLocalStorage.m; sourceTree = "<group>"; };
 		511BAA941A626508001E87AB /* PackageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PackageDetailViewController.h; sourceTree = "<group>"; };
 		511BAA951A626508001E87AB /* PackageDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PackageDetailViewController.m; sourceTree = "<group>"; };
 		511BAA971A6265AA001E87AB /* Package.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Package.h; sourceTree = "<group>"; };
@@ -180,6 +183,8 @@
 				511CA9AD1A6202FA0043E516 /* FRServer.m */,
 				511CA9AE1A6202FA0043E516 /* FRServerRequest.h */,
 				511CA9AF1A6202FA0043E516 /* FRServerRequest.m */,
+				51010C541A6293160045D994 /* FRLocalStorage.h */,
+				51010C551A6293160045D994 /* FRLocalStorage.m */,
 				51DA82D01A6164DD00F2E962 /* Supporting Files */,
 			);
 			path = "WatchKit Vocab Trainer";
@@ -429,6 +434,7 @@
 				511BAA9C1A62720D001E87AB /* Answer.m in Sources */,
 				511BAA961A626508001E87AB /* PackageDetailViewController.m in Sources */,
 				511CA9B11A6202FA0043E516 /* FRServerRequest.m in Sources */,
+				51010C561A6293160045D994 /* FRLocalStorage.m in Sources */,
 				5163774B1A618336005E83CA /* PackageTableViewController.m in Sources */,
 				51DA82D31A6164DD00F2E962 /* main.m in Sources */,
 			);

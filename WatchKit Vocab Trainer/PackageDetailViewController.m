@@ -27,8 +27,8 @@
 
 -(void) setPackage:(Package *) package {
     
-   
     
+    self.currentpackage=package;
     NSLog(@"%lu",(unsigned long)package.answers.count);
     
     
@@ -51,7 +51,7 @@
         noAnswersYet.textColor = [UIColor darkGrayColor];
         [self.view addSubview:noAnswersYet];
     } else {
-
+        
         
         UILabel *correct = [[UILabel alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, 50)];
         [correct setText:@"Correctly answered in this category:"];
@@ -63,7 +63,7 @@
         //[self.view addSubview:progressView];
         
         UILabel *percentage = [[UILabel alloc] initWithFrame:CGRectMake(0, 130, self.self.view.frame.size.width, 50)];
-        percentage.font=[UIFont fontWithName:@"Helveticaneue-light" size:40];
+        percentage.font=[UIFont fontWithName:@"Helveticaneue-light" size:30];
         percentage.textAlignment = NSTextAlignmentCenter;
         percentage.text=[NSString stringWithFormat:@"%.0f%% correct answers",100*[package percentageOfCorrectAnswers]];
         [self.view addSubview:percentage];
@@ -79,16 +79,25 @@
     
     UIButton *activateThisPackage = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     activateThisPackage.frame=CGRectMake(0, self.view.frame.size.height - 44 - 50, self.view.frame.size.width, 44);
-    [activateThisPackage setTitle:@"Activate this Package" forState:UIControlStateNormal];
-    [activateThisPackage setBackgroundColor:[UIColor lightGrayColor]];
+    
+    if([AppDelegate getPackageID] == [self.currentpackage.uuid intValue]) {
+        [activateThisPackage setBackgroundColor:[UIColor greenColor]];
+        [activateThisPackage setTitle:@"Package activated" forState:UIControlStateNormal];
+    } else {
+        [activateThisPackage setTitle:@"Activate this Package" forState:UIControlStateNormal];
+        [activateThisPackage setBackgroundColor:[UIColor lightGrayColor]];
+    }
     [self.view addSubview:activateThisPackage];
-    
-    
-    
+    [activateThisPackage addTarget:self action:@selector(activate:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+-(void) activate:(UIButton *) sender {
+    [sender setBackgroundColor:[UIColor greenColor]];
+    [sender setTitle:@"Package activated" forState:UIControlStateNormal];
+    [AppDelegate setPackageID:[self.currentpackage.uuid intValue]];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
@@ -116,13 +125,13 @@
 
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

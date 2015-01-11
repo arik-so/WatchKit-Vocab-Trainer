@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Leaderboard" id="CV3-A0-ilt"/>
+                    <tabBarItem key="tabBarItem" title="Leaderboard" image="rating-50" id="CV3-A0-ilt"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FvR-hG-Aka" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -90,11 +90,11 @@
             </objects>
             <point key="canvasLocation" x="339" y="838"/>
         </scene>
-        <!--Vocab Packages-->
+        <!--Question Packages-->
         <scene sceneID="1Jg-fb-DC4">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7ah-EU-jyQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Vocab Packages" id="a3D-k7-RiQ"/>
+                    <tabBarItem key="tabBarItem" title="Question Packages" image="package-50" id="a3D-k7-RiQ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="f5E-69-QzR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -110,4 +110,8 @@
             <point key="canvasLocation" x="-1244" y="838"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="package-50" width="30" height="30"/>
+        <image name="rating-50" width="30" height="30"/>
+    </resources>
 </document>
