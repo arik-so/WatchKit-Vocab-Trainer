@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "PackageDetailViewController.h"
 #import "Package.h"
+#import "Section.h"
 
 @interface PackageTableViewController : UITableViewController
 

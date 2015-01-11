@@ -87,6 +87,7 @@
         [activateThisPackage setTitle:@"Activate this Package" forState:UIControlStateNormal];
         [activateThisPackage setBackgroundColor:[UIColor lightGrayColor]];
     }
+    
     [self.view addSubview:activateThisPackage];
     [activateThisPackage addTarget:self action:@selector(activate:) forControlEvents:UIControlEventTouchUpInside];
 }
