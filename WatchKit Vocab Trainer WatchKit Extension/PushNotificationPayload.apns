@@ -1,19 +1,19 @@
 {
     "aps": {
-        "alert": "Bahnhof",
+        "alert": "First question",
         "title": "Optional title",
         "category": "myCategory"
     },
     
     "WatchKit Simulator Actions": [
                                    {
-                                        "title": "apple tree",
+                                        "title": "wrong answer",
                                         "identifier": "false"
                                    } , {
-                                        "title": "tree station",
+                                        "title": "right answer",
                                         "identifier": "true"
                                    } , {
-                                        "title": "car",
+                                        "title": "wrong answer",
                                         "identifier": "false"
                                    }
                                    ],

@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "Package.h"
 
-@interface PackageDetailViewController : UIViewController
--(void) setPackage;
+@interface PackageDetailViewController : UIViewController<UITableViewDataSource>
+-(void) setPackage:(Package *) package;
+@property(nonatomic,strong) NSArray *answers;
+
 @end

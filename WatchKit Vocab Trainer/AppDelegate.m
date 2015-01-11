@@ -14,6 +14,7 @@
 
 @implementation AppDelegate
 
+static int selectedPackageID = 1;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
@@ -119,12 +120,6 @@
             
             
             
-            
-            
-            
-            
-            
-            
             /*
              
              if(r == 0) {
@@ -170,15 +165,10 @@
         };
         
         
-        NSString *requestURL = [NSString stringWithFormat:@"http://xampp.localhost/watchkit-vocab-trainer/web/category/2/random-question?device_id=%@",[UIDevice currentDevice].identifierForVendor.UUIDString];
+        NSString *requestURL = [NSString stringWithFormat:@"http://xampp.localhost/watchkit-vocab-trainer/web/category/%u/random-question?device_id=%@",selectedPackageID,[UIDevice currentDevice].identifierForVendor.UUIDString];
         
         [FRServer jsonFromURL: [requestURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] HTTPMethod:@"GET" attributes:nil HTTPHeaderFieldDictionary:nil andCallbackBlock:finishedDownloading];
     }
-    
-    
-    
-    
-    
 }
 
 
@@ -202,6 +192,10 @@
     
     
     return [NSJSONSerialization JSONObjectWithData:[questionString  dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
+}
+
++(void) setPackageID:(int) packageID {
+    selectedPackageID = packageID;
 }
 
 @end

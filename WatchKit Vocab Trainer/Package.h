@@ -7,13 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
-@import UIKit;
+#import "Answer.h"
+
 @interface Package : NSObject
 @property(strong,nonatomic) NSString *name;
-@property(strong,nonatomic) UIImage *image;
+@property(strong,nonatomic) NSString *imageURL;
+@property(strong,nonatomic) NSString *uuid;
 @property(nonatomic) double percentageDone;
-@property(nonatomic) int correctAnswers;
-@property(nonatomic) int askedQuestions;
+@property(atomic) int correctAnswers;
+@property(atomic) int askedQuestions;
+@property(nonatomic) NSMutableArray *answers;
 
+
+-(float) percentageOfCorrectAnswers;
+-(id) initWithJSON:(NSDictionary *) dic;
+-(void) addAnswer:(Answer *) answer;
 
 @end

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		511BAA961A626508001E87AB /* PackageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 511BAA951A626508001E87AB /* PackageDetailViewController.m */; };
 		511BAA991A6265AA001E87AB /* Package.m in Sources */ = {isa = PBXBuildFile; fileRef = 511BAA981A6265AA001E87AB /* Package.m */; };
+		511BAA9C1A62720D001E87AB /* Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = 511BAA9B1A62720D001E87AB /* Answer.m */; };
 		511CA9B01A6202FA0043E516 /* FRServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 511CA9AD1A6202FA0043E516 /* FRServer.m */; };
 		511CA9B11A6202FA0043E516 /* FRServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 511CA9AF1A6202FA0043E516 /* FRServerRequest.m */; };
 		5163774B1A618336005E83CA /* PackageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5163774A1A618336005E83CA /* PackageTableViewController.m */; };
@@ -73,6 +74,8 @@
 		511BAA951A626508001E87AB /* PackageDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PackageDetailViewController.m; sourceTree = "<group>"; };
 		511BAA971A6265AA001E87AB /* Package.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Package.h; sourceTree = "<group>"; };
 		511BAA981A6265AA001E87AB /* Package.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Package.m; sourceTree = "<group>"; };
+		511BAA9A1A62720D001E87AB /* Answer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Answer.h; sourceTree = "<group>"; };
+		511BAA9B1A62720D001E87AB /* Answer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Answer.m; sourceTree = "<group>"; };
 		511CA9AC1A6202FA0043E516 /* FRServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRServer.h; sourceTree = "<group>"; };
 		511CA9AD1A6202FA0043E516 /* FRServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRServer.m; sourceTree = "<group>"; };
 		511CA9AE1A6202FA0043E516 /* FRServerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRServerRequest.h; sourceTree = "<group>"; };
@@ -168,6 +171,8 @@
 				511BAA951A626508001E87AB /* PackageDetailViewController.m */,
 				511BAA971A6265AA001E87AB /* Package.h */,
 				511BAA981A6265AA001E87AB /* Package.m */,
+				511BAA9A1A62720D001E87AB /* Answer.h */,
+				511BAA9B1A62720D001E87AB /* Answer.m */,
 				51DA82DA1A6164DD00F2E962 /* Main.storyboard */,
 				51DA82DD1A6164DD00F2E962 /* Images.xcassets */,
 				51DA82DF1A6164DD00F2E962 /* LaunchScreen.xib */,
@@ -336,6 +341,11 @@
 				TargetAttributes = {
 					51DA82CC1A6164DC00F2E962 = {
 						CreatedOnToolsVersion = 6.2;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
 					};
 					51DA82E51A6164DD00F2E962 = {
 						CreatedOnToolsVersion = 6.2;
@@ -416,6 +426,7 @@
 				511BAA991A6265AA001E87AB /* Package.m in Sources */,
 				511CA9B01A6202FA0043E516 /* FRServer.m in Sources */,
 				51DA82D61A6164DD00F2E962 /* AppDelegate.m in Sources */,
+				511BAA9C1A62720D001E87AB /* Answer.m in Sources */,
 				511BAA961A626508001E87AB /* PackageDetailViewController.m in Sources */,
 				511CA9B11A6202FA0043E516 /* FRServerRequest.m in Sources */,
 				5163774B1A618336005E83CA /* PackageTableViewController.m in Sources */,
