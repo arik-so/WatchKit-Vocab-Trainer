@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PackageDetailViewController.h"
 
 @interface PackageTableViewController : UITableViewController
 

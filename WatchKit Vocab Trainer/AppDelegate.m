@@ -35,9 +35,9 @@
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    
+
+
    
-    
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
@@ -46,26 +46,27 @@
 }
 
 -(void)application:(UIApplication *)application handleWatchKitExtensionRequest:(NSDictionary *)userInfo reply:(void (^)(NSDictionary *replyInfo))reply {
-    if([userInfo[@"key"] isEqualToString:@"sendAnswerToServer"]) {
+    if([[NSString stringWithFormat:@"%@",userInfo[@"key"]] isEqualToString:@"sendAnswerToServer"]) {
+        
         
         NSString *correctString = @"false";
-        if([userInfo[@"numberOfAnswers"] isEqualToString:@"1"]) {
+        if([[NSString stringWithFormat:@"%@",userInfo[@"numberOfAnswers"]] isEqualToString:@"1"]) {
             correctString=@"true";
         }
         
 
-        NSString *serverRequestSting = [NSString stringWithFormat:@"http://xampp.localhost/watchkit-vocab-trainer/web/answer/?question_id=%@&correct=%@&device_id=%@",userInfo[@"question_id"],correctString,[UIDevice currentDevice].identifierForVendor.UUIDString];
+        NSString *serverRequestSting = [NSString stringWithFormat:@"http://xampp.localhost/watchkit-vocab-trainer/web/answer/?question_id=%@&correct=%@&device_id=%@" ,[NSString stringWithFormat:@"%@",userInfo[@"questionid"]],correctString,[UIDevice currentDevice].identifierForVendor.UUIDString];
         
         
         
         
-        void (^finishedDownloading)(NSDictionary *dic) = ^void(NSDictionary *dic) {
-            reply(dic);
+        void (^finishedDownloading)(NSString *dic) = ^void(NSString *dic) {
+            reply(@{@"Server answer": dic});
         };
         
         
         
-        [FRServer jsonFromURL:[serverRequestSting stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] HTTPMethod:@"POST" attributes:nil HTTPHeaderFieldDictionary:nil andCallbackBlock:finishedDownloading];
+        [FRServer stringFromURL:serverRequestSting HTTPMethod:@"POST" attributes:nil HTTPHeaderFieldDictionary:nil andCallbackBlock:finishedDownloading];
         
         
     } else if([userInfo[@"key"] isEqualToString:@"getNewQuestionFromServer"]) {
@@ -74,7 +75,7 @@
             NSString *question = dic[@"question"][@"text"];
             
             
-            int r = arc4random() % 3;
+            //int r = arc4random() % 3;
             
             NSString *answer1;
             NSString *identifier1;
@@ -162,14 +163,16 @@
             
             NSMutableDictionary *newQuestionDic = [[NSJSONSerialization JSONObjectWithData:[questionString  dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil] mutableCopy];
             
-            [newQuestionDic setValue:dic[@"question"][@"id"] forKey:@"question_id"];
+            [newQuestionDic setValue:dic[@"question"][@"id"] forKey:@"questionid"];
             
             reply(newQuestionDic);
             
         };
         
         
-        [FRServer jsonFromURL:@"http://xampp.localhost/watchkit-vocab-trainer/web/category/2/random-question" HTTPMethod:@"GET" attributes:nil HTTPHeaderFieldDictionary:nil andCallbackBlock:finishedDownloading];
+        NSString *requestURL = [NSString stringWithFormat:@"http://xampp.localhost/watchkit-vocab-trainer/web/category/2/random-question?device_id=%@",[UIDevice currentDevice].identifierForVendor.UUIDString];
+        
+        [FRServer jsonFromURL: [requestURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] HTTPMethod:@"GET" attributes:nil HTTPHeaderFieldDictionary:nil andCallbackBlock:finishedDownloading];
     }
     
     

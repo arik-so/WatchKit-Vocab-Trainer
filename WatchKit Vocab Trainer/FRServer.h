@@ -3,8 +3,8 @@
 //  Server
 //
 //  Created by Frederik Riedel on 03.12.14.
-//  Copyright (c) 2015 Frederik Riedel. All rights reserved.
-// https://github.com/quappi/FRServer
+//  Copyright (c) 2014 Frederik Riedel. All rights reserved.
+//
 
 #import <Foundation/Foundation.h>
 #import "FRServerRequest.h"

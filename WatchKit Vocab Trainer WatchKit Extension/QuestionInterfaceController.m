@@ -100,15 +100,20 @@
     //[self.context setObject:self.answers[index][@"identifier"] forKey:@"identifier"];
     
     //[self popToRootController];
-
     
-    [InterfaceController openParentApplication:@{@"key": @"sendAnswerToServer", @"numberOfAnswers": [NSString stringWithFormat:@"%u",self.numberOfGuesses],@"question_id":self.context[@"question_id"]} reply:^(NSDictionary *replyInfo, NSError *error) {
-        NSLog(@"%@",replyInfo);
+    
+    NSString *question_id = [NSString stringWithFormat:@"%@",self.context[@"questionid"]];
+    NSString *numberofAnswers = [NSString stringWithFormat:@"%u",self.numberOfGuesses];
+    
+    [InterfaceController openParentApplication:@{@"key": @"sendAnswerToServer", @"numberOfAnswers": numberofAnswers,@"questionid":question_id} reply:^(NSDictionary *replyInfo, NSError *error) {
+        
+        NSLog(@"Server send answer: %@",replyInfo);
         
     }];
     
     
     [InterfaceController openParentApplication:@{@"key": @"getNewQuestionFromServer"} reply:^(NSDictionary *replyInfo, NSError *error) {
+        
         NSLog(@"%@",replyInfo);
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

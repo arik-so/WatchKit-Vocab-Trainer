@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		511BAA961A626508001E87AB /* PackageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 511BAA951A626508001E87AB /* PackageDetailViewController.m */; };
+		511BAA991A6265AA001E87AB /* Package.m in Sources */ = {isa = PBXBuildFile; fileRef = 511BAA981A6265AA001E87AB /* Package.m */; };
+		511CA9B01A6202FA0043E516 /* FRServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 511CA9AD1A6202FA0043E516 /* FRServer.m */; };
+		511CA9B11A6202FA0043E516 /* FRServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 511CA9AF1A6202FA0043E516 /* FRServerRequest.m */; };
 		5163774B1A618336005E83CA /* PackageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5163774A1A618336005E83CA /* PackageTableViewController.m */; };
 		5163774E1A61904D005E83CA /* QuestionInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5163774D1A61904D005E83CA /* QuestionInterfaceController.m */; };
-		51B2044A1A619F3100D89400 /* FRServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B204471A619F3100D89400 /* FRServer.m */; };
-		51B2044E1A61A3A200D89400 /* FRServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B2044D1A61A3A200D89400 /* FRServerRequest.m */; };
 		51D036E11A61AEB500CA112A /* MultipleSelectionTableRowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D036E01A61AEB500CA112A /* MultipleSelectionTableRowController.m */; };
 		51DA82D31A6164DD00F2E962 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 51DA82D21A6164DD00F2E962 /* main.m */; };
 		51DA82D61A6164DD00F2E962 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 51DA82D51A6164DD00F2E962 /* AppDelegate.m */; };
@@ -67,14 +69,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		511BAA941A626508001E87AB /* PackageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PackageDetailViewController.h; sourceTree = "<group>"; };
+		511BAA951A626508001E87AB /* PackageDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PackageDetailViewController.m; sourceTree = "<group>"; };
+		511BAA971A6265AA001E87AB /* Package.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Package.h; sourceTree = "<group>"; };
+		511BAA981A6265AA001E87AB /* Package.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Package.m; sourceTree = "<group>"; };
+		511CA9AC1A6202FA0043E516 /* FRServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRServer.h; sourceTree = "<group>"; };
+		511CA9AD1A6202FA0043E516 /* FRServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRServer.m; sourceTree = "<group>"; };
+		511CA9AE1A6202FA0043E516 /* FRServerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRServerRequest.h; sourceTree = "<group>"; };
+		511CA9AF1A6202FA0043E516 /* FRServerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRServerRequest.m; sourceTree = "<group>"; };
 		516377491A618336005E83CA /* PackageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PackageTableViewController.h; sourceTree = "<group>"; };
 		5163774A1A618336005E83CA /* PackageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PackageTableViewController.m; sourceTree = "<group>"; };
 		5163774C1A61904D005E83CA /* QuestionInterfaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionInterfaceController.h; sourceTree = "<group>"; };
 		5163774D1A61904D005E83CA /* QuestionInterfaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionInterfaceController.m; sourceTree = "<group>"; };
-		51B204461A619F3100D89400 /* FRServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRServer.h; sourceTree = "<group>"; };
-		51B204471A619F3100D89400 /* FRServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRServer.m; sourceTree = "<group>"; };
-		51B2044C1A61A3A200D89400 /* FRServerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRServerRequest.h; sourceTree = "<group>"; };
-		51B2044D1A61A3A200D89400 /* FRServerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRServerRequest.m; sourceTree = "<group>"; };
 		51D036DF1A61AEB500CA112A /* MultipleSelectionTableRowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipleSelectionTableRowController.h; sourceTree = "<group>"; };
 		51D036E01A61AEB500CA112A /* MultipleSelectionTableRowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipleSelectionTableRowController.m; sourceTree = "<group>"; };
 		51DA82CD1A6164DC00F2E962 /* WatchKit Vocab Trainer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WatchKit Vocab Trainer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,13 +164,17 @@
 				51DA82D51A6164DD00F2E962 /* AppDelegate.m */,
 				516377491A618336005E83CA /* PackageTableViewController.h */,
 				5163774A1A618336005E83CA /* PackageTableViewController.m */,
+				511BAA941A626508001E87AB /* PackageDetailViewController.h */,
+				511BAA951A626508001E87AB /* PackageDetailViewController.m */,
+				511BAA971A6265AA001E87AB /* Package.h */,
+				511BAA981A6265AA001E87AB /* Package.m */,
 				51DA82DA1A6164DD00F2E962 /* Main.storyboard */,
 				51DA82DD1A6164DD00F2E962 /* Images.xcassets */,
 				51DA82DF1A6164DD00F2E962 /* LaunchScreen.xib */,
-				51B204461A619F3100D89400 /* FRServer.h */,
-				51B204471A619F3100D89400 /* FRServer.m */,
-				51B2044C1A61A3A200D89400 /* FRServerRequest.h */,
-				51B2044D1A61A3A200D89400 /* FRServerRequest.m */,
+				511CA9AC1A6202FA0043E516 /* FRServer.h */,
+				511CA9AD1A6202FA0043E516 /* FRServer.m */,
+				511CA9AE1A6202FA0043E516 /* FRServerRequest.h */,
+				511CA9AF1A6202FA0043E516 /* FRServerRequest.m */,
 				51DA82D01A6164DD00F2E962 /* Supporting Files */,
 			);
 			path = "WatchKit Vocab Trainer";
@@ -403,9 +413,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51B2044A1A619F3100D89400 /* FRServer.m in Sources */,
+				511BAA991A6265AA001E87AB /* Package.m in Sources */,
+				511CA9B01A6202FA0043E516 /* FRServer.m in Sources */,
 				51DA82D61A6164DD00F2E962 /* AppDelegate.m in Sources */,
-				51B2044E1A61A3A200D89400 /* FRServerRequest.m in Sources */,
+				511BAA961A626508001E87AB /* PackageDetailViewController.m in Sources */,
+				511CA9B11A6202FA0043E516 /* FRServerRequest.m in Sources */,
 				5163774B1A618336005E83CA /* PackageTableViewController.m in Sources */,
 				51DA82D31A6164DD00F2E962 /* main.m in Sources */,
 			);

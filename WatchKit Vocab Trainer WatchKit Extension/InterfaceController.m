@@ -70,7 +70,7 @@
         
         
         
-        [InterfaceController openParentApplication:@{@"key": @"sendAnswerToServer", @"numberOfAnswers": [NSString stringWithFormat:@"%u",1],@"question_id":[NSString stringWithFormat:@"%u",[remoteNotification[@"customKey"] intValue]]} reply:^(NSDictionary *replyInfo, NSError *error) {
+        [InterfaceController openParentApplication:@{@"key": @"sendAnswerToServer", @"numberOfAnswers": [NSString stringWithFormat:@"%u",1],@"questionid":[NSString stringWithFormat:@"%u",[remoteNotification[@"customKey"] intValue]]} reply:^(NSDictionary *replyInfo, NSError *error) {
             NSLog(@"Server send Answer: %@",replyInfo);
             
         }];

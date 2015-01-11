@@ -3,8 +3,8 @@
 //  Server
 //
 //  Created by Frederik Riedel on 03.12.14.
-//  Copyright (c) 2015 Frederik Riedel. All rights reserved.
-// https://github.com/quappi/FRServer
+//  Copyright (c) 2014 Frederik Riedel. All rights reserved.
+//
 
 #import "FRServer.h"
 
@@ -13,7 +13,7 @@
 
 +(void) dataFromURL:(NSString *) url HTTPMethod:(NSString *) HTTPMethod attributes:(NSDictionary *) attributes HTTPHeaderFieldDictionary:(NSDictionary *) HTTPHeaderFields andCallbackBlock: (void (^) (NSData *data)) block {
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
         [request setHTTPMethod:HTTPMethod];
         
@@ -22,6 +22,8 @@
                 [request setValue:[HTTPHeaderFields valueForKey:key] forHTTPHeaderField:key];
             }
         }
+        
+        
         
         
         if(attributes) {
@@ -57,7 +59,6 @@
 
 
 +(void) jsonFromURL:(NSString *)url HTTPMethod:(NSString *)HTTPMethod attributes:(NSDictionary *)attributes HTTPHeaderFieldDictionary:(NSDictionary *)HTTPHeaderFields andCallbackBlock:(void (^)(NSDictionary *))block {
-
     
     void (^finishedDownloading)(NSData *data) = ^void(NSData *data) {
         if(data) {
