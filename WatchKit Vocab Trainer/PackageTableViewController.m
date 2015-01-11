@@ -15,6 +15,8 @@
 
 @property (strong, nonatomic) NSArray *categories;
 @property (strong, nonatomic) NSMutableDictionary *categoryImages;
+@property (strong, nonatomic) NSMutableDictionary *sections;
+@property (strong, nonatomic) NSMutableArray *sortedSections;
 @property (strong, nonatomic) NSMutableArray *packages;
 
 @end
@@ -45,7 +47,9 @@
     
     self.categoryImages = @{}.mutableCopy;
     self.packages = @[].mutableCopy;
+    self.sortedSections = @[].mutableCopy;
     [self.packages removeAllObjects];
+    self.sections =@{}.mutableCopy;
     
     // get all the categories
     /*dispatch_async(dispatch_queue_create(nil, nil), ^{
@@ -97,11 +101,23 @@
     
     [FRServer stringFromURL:@"http://xampp.localhost/watchkit-vocab-trainer/web/categories" HTTPMethod:@"GET" attributes:nil HTTPHeaderFieldDictionary:nil andCallbackBlock:^(NSString *string) {
         
-
+        
         self.categories = [NSJSONSerialization JSONObjectWithData:[string dataUsingEncoding:NSUTF8StringEncoding] options:nil error:nil];
         
         for(NSDictionary *dic in self.categories) {
-            [self.packages addObject:[[Package alloc] initWithJSON:dic]];
+            Section *section = [self.sections valueForKey:dic[@"section"]];
+            
+            if(!section) {
+                
+                section = [[Section alloc] init];
+                section.sectionID = dic[@"section"];
+                [self.sections setObject:section forKey:dic[@"section"]];
+            }
+            
+            [section.packages addObject:[[Package alloc] initWithJSON:dic]];
+            
+            
+            //[self.packages addObject:[[Package alloc] initWithJSON:dic]];
         }
         
         
@@ -112,16 +128,18 @@
         [FRServer stringFromURL:[[NSString stringWithFormat:@"http://xampp.localhost/watchkit-vocab-trainer/web/device/%@/stats",[UIDevice currentDevice].identifierForVendor.UUIDString] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] HTTPMethod:@"GET" attributes:nil HTTPHeaderFieldDictionary:nil andCallbackBlock:^(NSString *answersString) {
             
             
-
+            
+            
+            NSArray *answers = [NSJSONSerialization JSONObjectWithData:[answersString dataUsingEncoding:NSUTF8StringEncoding] options:nil error:nil];
+            
+            
+            for(NSDictionary *dic in answers) {
+                NSString *category_id = [dic valueForKey:@"category_id"];
                 
-                NSArray *answers = [NSJSONSerialization JSONObjectWithData:[answersString dataUsingEncoding:NSUTF8StringEncoding] options:nil error:nil];
-                
-                
-                for(NSDictionary *dic in answers) {
-                    NSString *category_id = [dic valueForKey:@"category_id"];
-                    
-                    if(![category_id isEqual:[NSNull null]]) {
-                        for (Package *package in self.packages) {
+                if(![category_id isEqual:[NSNull null]]) {
+                    for(NSString *key in self.sections) {
+                        Section *section = self.sections[key];
+                        for (Package *package in section.packages) {
                             if([package.uuid isEqualToString:category_id]) {
                                 Answer *answer = [[Answer alloc] initWithJSON:dic];
                                 [package addAnswer:answer];
@@ -130,9 +148,13 @@
                         }
                     }
                 }
+            }
             
+            NSArray *sortedKeys = [[self.sections allKeys] sortedArrayUsingSelector: @selector(compare:)];
             
-            
+            for (NSString *key in sortedKeys) {
+                [self.sortedSections addObject: [self.sections objectForKey: key]];
+            }
             
             [self.refreshControl endRefreshing];
             
@@ -154,7 +176,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return 1;
+    return [self.sections allKeys].count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -162,20 +184,20 @@
     
     //    NSLog(@"%u",self.packages.count);
     
-    return self.packages.count;
+    return ((Section *)self.sortedSections[section]).packages.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
-    Package *package = self.packages[indexPath.row];
+    Package *package = ((Section *)self.sortedSections[indexPath.section]).packages[indexPath.row];
     
     //    NSDictionary *details = self.categories[indexPath.row];
     NSString *categoryID = package.uuid;
     NSString *name = package.name;
     NSString *imageURL = package.imageURL;
-    cell.tag = indexPath.row;
+    cell.tag = [package.uuid intValue];
     
     UIImage *image = self.categoryImages[[NSString stringWithFormat:@"%@",categoryID]];
     
@@ -209,6 +231,10 @@
 
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 75.0;
+}
+
+-(NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return ((Section *)self.sortedSections[section]).sectionID;
 }
 
 /*
@@ -249,14 +275,25 @@
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UIButton *)sender {
     
     
     
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    Package *package = self.packages [((UITableViewCell*) sender).tag];
-    [((PackageDetailViewController *)[segue destinationViewController]) setPackage:package];
+    Package *currentPackage;
+    
+    for(Section *section in self.sortedSections) {
+        for(Package *package in section.packages) {
+            if([package.uuid intValue] == sender.tag) {
+                currentPackage =package;
+            }
+        }
+    }
+    
+        
+    
+    [((PackageDetailViewController *)[segue destinationViewController]) setPackage:currentPackage];
 }
 
 

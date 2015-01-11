@@ -4,6 +4,32 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
     </dependencies>
     <scenes>
+        <!--Table View Controller-->
+        <scene sceneID="4uu-La-cvj">
+            <objects>
+                <tableViewController id="YNI-SA-n4m" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="iLz-FZ-A7T">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="AS0-fa-URs">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AS0-fa-URs" id="2kk-3F-wiw">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="YNI-SA-n4m" id="rZL-n4-Df1"/>
+                            <outlet property="delegate" destination="YNI-SA-n4m" id="CJV-yg-nWl"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P2N-6V-cNZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="520" y="-460"/>
+        </scene>
         <!--Leaderboard-->
         <scene sceneID="M36-p1-Gbf">
             <objects>
@@ -18,6 +44,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Leaderboard" image="rating-50" id="CV3-A0-ilt"/>
+                    <connections>
+                        <segue destination="YNI-SA-n4m" kind="show" id="0fY-sw-rPg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FvR-hG-Aka" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
